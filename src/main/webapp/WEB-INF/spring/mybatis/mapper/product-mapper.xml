@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.biz.iolist.mapper.ProductDao">
+ 
+ 	<select id="selectAll">
+ 		SELECT * FROM tbl_products ORDER BY io_date, io_time
+ 	</select>
+ 	<select id="findById">
+ 		SELECT * FROM tbl_products WHERE io_seq=#{seq}
+ 	</select>
+ 	<insert id="insert">
+ 		INSERT INTO tbl_products (
+ 			io_seq,
+	 		io_date,
+			io_time,
+			io_pname,
+			io_input,
+			io_price,
+			io_quan
+ 		) VALUES (
+ 			io_seq.NEXTVAL,
+ 	 		#{io_date},
+			#{io_time},
+			#{io_pname},
+			#{io_input},
+			#{io_price},
+			#{io_quan}
+ 		)
+ 	</insert>
+ 	<update id="update"></update>
+ 	<delete id="delete"></delete>
+ 
+ </mapper> 
