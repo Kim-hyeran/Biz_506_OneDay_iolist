@@ -17,7 +17,7 @@
 	<div id="header">
 		<div><h3>${PRO_VO.io_pname}</h3></div>
 		<div><a href="${rootPath}/update?id=${PRO_VO.io_seq}"><i class="far fa-edit"></i></a></div>
-		<div><a href="javascript:void(0)"><i class="far fa-trash-alt"></i></a></div>
+		<div><a href="${rootPath}/delete?id=${PRO_VO.io_seq}"><i class="far fa-trash-alt"></i></a></div>
 	</div>
 	<div id="detail">
 		<p><b>일자</b> ${PRO_VO.io_date} | ${PRO_VO.io_time}</p>

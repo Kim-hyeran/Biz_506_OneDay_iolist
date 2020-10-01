@@ -79,8 +79,8 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/update", method=RequestMethod.GET)
-	public String update(@RequestParam("id") String io_seq, Model model) {
-		ProductVO proVO=proService.findById(Long.valueOf(io_seq));
+	public String update(@RequestParam("id") String io_seq, @ModelAttribute ProductVO proVO, Model model) {
+		proVO=proService.findById(Long.valueOf(io_seq));
 		
 		model.addAttribute("PRO_VO", proVO);
 		model.addAttribute("BODY", "PRO_WRITE");
@@ -90,10 +90,18 @@ public class ProductController {
 	
 	@RequestMapping(value="/update",method=RequestMethod.POST)
 	public String update(@ModelAttribute ProductVO proVO,Model model) {
+		proService.update(proVO);
 		
-		int ret = proService.update(proVO);
-	
-		model.addAttribute("id",proVO.getIo_seq());
+		/*
+		 * update 명령만 수행이 되지 않고 있음
+		 * 수정 후 저장을 클릭하면 아래 주소로 이동되고 수정사항이 반영되지 않는다
+		 * http://localhost:8080/iolist/?id=0
+		 * redirect:/로 리턴했음에도 ?id=0이 출력되는 이유가 뭘까?
+		 * CRD에서는 이러한 현상이 발생하지 않음
+		 */
+		
+		model.addAttribute("id", proVO.getIo_seq());
+		
 		return "redirect:/";
 	
 	}

@@ -5,9 +5,14 @@
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <link rel="stylesheet" href="${rootPath}/static/css/product-write.css">
 <script src="${rootPath}/static/js/home.js"></script>
-<style>
-
-</style>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		let edit = document.querySelector("#btn-save")
+		edit.addEventListener("click", function () {
+			document.querySelector("form").submit();
+		})
+	})
+</script>
 <h3>상품정보 등록</h3>
 <form:form modelAttribute="PRO_VO">
 	<div>
@@ -30,6 +35,6 @@
 	</div>
 	<div id="btn_box">
 		<button type="button" id="btn-list">목록</button>
-		<button type="submit" id="btn-save">저장</button>
+		<button type="button" id="btn-save">저장</button>
 	</div>
 </form:form>
