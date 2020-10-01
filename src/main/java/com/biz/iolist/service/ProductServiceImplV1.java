@@ -31,14 +31,13 @@ public class ProductServiceImplV1 implements ProductService {
 
 	@Override
 	public int update(ProductVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return proDao.update(vo);
 	}
 
 	@Override
 	public int delete(long seq) {
 		// TODO Auto-generated method stub
-		return 0;
+		return proDao.delete(seq);
 	}
 
 }
