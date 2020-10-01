@@ -1,0 +1,53 @@
+@charset "UTF-8";
+section {
+	padding: 10px;
+}
+div#header {
+	display: flex;
+}
+
+div#header div h3 {
+	border-bottom: 5px solid #ffc1b5;
+}
+
+div#header div:nth-child(2) {
+	margin-left: auto;
+}
+
+div#header div a {
+	margin: 0 5px;
+	color: #666;
+	font-size: 1.1rem;
+}
+
+div#header div a i.fa-edit:hover {
+	color: #ffc1b5;
+	transition: 0.5s linear;
+}
+
+div#header div a i.fa-trash-alt:hover {
+	color: #79e5cb;
+	transition: 0.5s linear;
+}
+
+div#detail {
+	margin: 20px 0;
+}
+
+div#button {
+	display: flex;
+}
+
+button#btn-list {
+	margin: auto;
+	border: none;
+	font-size: inherit;
+	padding: 10px;
+	outline: none;
+	background-color: #ffc1b5;
+	transition: 0.3s linear;
+}
+
+button#btn-list:hover {
+	background-color: #79e5cb;
+}

@@ -6,7 +6,7 @@
 <configuration>
 	
 	<typeAliases>
-		<typeAlias type="com.biz.iolist.mapper.ProductDao" alias="proDao"/>
+		<typeAlias type="com.biz.iolist.model.ProductVO" alias="proVO"/>
 	</typeAliases>
 
 </configuration>

@@ -12,25 +12,28 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.biz.iolist.model.ProductVO;
 import com.biz.iolist.service.ProductService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
-@RequestMapping(value="/product")
+//@RequestMapping(value="/")
 public class ProductController {
 	
 	@Autowired
-	//private ProductDao proDao;
 	@Qualifier("proServiceV1")
 	private ProductService proService;
 	
 	@RequestMapping(value={"/", ""}, method=RequestMethod.GET)
-	public String Home(Model model) {
+	public String home(Model model) {
 		List<ProductVO> proList=proService.selectAll();
 		
 		model.addAttribute("PRO_LIST", proList);
-		model.addAttribute("BODY", "PRO_HOME");
+		model.addAttribute("BODY", "PRO_LIST");
 		
 		return "home";
 	}
@@ -57,29 +60,46 @@ public class ProductController {
 		int ret=proService.insert(proVO);
 		
 		if(ret<1) {
+			log.debug("데이터를 추가하는 데 실패했습니다.");
 		}
 		
-		return "home";
+		return "redirect:/";
 	}
 	
-	@RequestMapping(value="/detail", method=RequestMethod.GET)
-	public String detail(ProductVO proVO, Model model) {
-		
-		model.addAttribute("BODY", "PRO_DETAIL");
-		
-		return "home";
-	}
-	
-	/*
 	@RequestMapping(value="/detail", method=RequestMethod.GET)
 	public String detail(@RequestParam("id") String io_seq, Model model) {
-		ProductVO proVO=proDao.findById(Long.valueOf(io_seq));
+		ProductVO proVO=proService.findById(Long.valueOf(io_seq));
 		
 		model.addAttribute("PRO_VO", proVO);
 		model.addAttribute("BODY", "PRO_DETAIL");
 		
 		return "home";
 	}
-	*/
-
+	
+	@RequestMapping(value="/update", method=RequestMethod.GET)
+	public String update(@RequestParam("id") String io_seq, Model model) {
+		ProductVO proVO=proService.findById(Long.valueOf(io_seq));
+		
+		model.addAttribute("PRO_VO", proVO);
+		model.addAttribute("BODY", "PRO_WRITE");
+		
+		return "home";
+	}
+	
+	@RequestMapping(value="/update",method=RequestMethod.POST)
+	public String update(@ModelAttribute ProductVO proVO,Model model) {
+		
+		int ret = proService.update(proVO);
+	
+		model.addAttribute("id",proVO.getIo_seq());
+		return "redirect:/";
+	
+	}
+	
+	@RequestMapping(value="/delete", method=RequestMethod.GET)
+    public String delete(@RequestParam("id") String io_seq) {
+        proService.delete(Long.valueOf(io_seq));
+        
+        return "redirect:/";
+    }
 }

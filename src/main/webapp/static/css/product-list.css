@@ -1,0 +1,49 @@
+@charset "UTF-8";
+article {
+	width: 90%;
+	text-align: right;
+	font-size: 1.5rem;
+	margin: 5px auto;
+}
+
+article a {
+	text-decoration: none;
+	color: #ffc1b5;
+	transition: 0.3s linear;
+}
+
+article a:hover {
+	color: #79e5cb;
+}
+
+p#notice {
+	margin: 0 15px;
+	font-size: 0.7rem;
+	color: #ccc;
+}
+
+table {
+	border-collapse: collapse;
+	width: 95%;
+	margin: 10px auto;
+	text-align: center;
+}
+
+table tr th {
+	padding: 8px;
+	border-bottom: 1px solid #ccc;
+}
+
+tr, td {
+	padding: 8px;
+}
+
+table tr a {
+	text-decoration: none;
+	color: inherit;
+	transition: 0.3s linear;
+}
+
+table tr#tr_body:hover {
+	background-color: rgba(121, 229, 203, 0.3);
+}

@@ -5,13 +5,13 @@
   
  <mapper namespace="com.biz.iolist.mapper.ProductDao">
  
- 	<select id="selectAll">
+ 	<select id="selectAll" resultType="proVO">
  		SELECT * FROM tbl_products ORDER BY io_date, io_time
  	</select>
- 	<select id="findById">
- 		SELECT * FROM tbl_products WHERE io_seq=#{seq}
+ 	<select id="findById" resultType="proVO">
+ 		SELECT * FROM tbl_products WHERE io_seq=#{io_seq}
  	</select>
- 	<insert id="insert">
+ 	<insert id="insert" parameterType="proVO">
  		INSERT INTO tbl_products (
  			io_seq,
 	 		io_date,
@@ -30,7 +30,19 @@
 			#{io_quan}
  		)
  	</insert>
- 	<update id="update"></update>
- 	<delete id="delete"></delete>
+ 	<update id="update" parameterType="proVO">
+ 		UPDATE tbl_products SET
+            io_date = #{io_date},
+            io_time = #{io_time},
+            io_pname = #{io_pname},
+            io_input = #{io_input},
+            io_price = #{io_price},
+            io_quan  = #{io_quan}
+        WHERE io_seq = #{io_seq}
+ 	</update>
+ 	<delete id="delete">
+ 		DELETE FROM tbl_products
+        WHERE io_seq = #{io_seq}
+ 	</delete>
  
  </mapper> 

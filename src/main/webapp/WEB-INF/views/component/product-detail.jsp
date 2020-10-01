@@ -2,74 +2,31 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
-<style>
-	section {
-		padding: 10px;
-	}
-	div#header {
-		display: flex;
-	}
-	
-	div#header div h3 {
-		border-bottom: 5px solid #ffc1b5;
-	}
-	
-	div#header div:nth-child(2) {
-		margin-left: auto;
-	}
-	
-	div#header div a {
-		margin: 0 5px;
-		color: #666;
-		font-size: 1.1rem;
-	}
-	
-	div#header div a i.fa-edit:hover {
-		color: #ffc1b5;
-		transition: 0.5s linear;
-	}
-	
-	div#header div a i.fa-trash-alt:hover {
-		color: #79e5cb;
-		transition: 0.5s linear;
-	}
-	
-	div#detail {
-		margin: 20px 0;
-	}
-	
-	div#button {
-		display: flex;
-	}
-	
-	button#list {
-		margin: auto;
-		border: none;
-		font-size: inherit;
-		padding: 10px;
-		outline: none;
-		background-color: #ffc1b5;
-		transition: 0.3s linear;
-	}
-	
-	button#list:hover {
-		background-color: #79e5cb;
-	}
-</style>
+<link rel="stylesheet" href="${rootPath}/static/css/product-detail.css">
+<script src="${rootPath}/static/js/home.js"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		let trash = document.querySelector(".fa-trash-alt")
+		trash.addEventListener("click", function () {
+			alert("삭제할까요?")
+			document.location.href = "/delete"
+		})
+	})
+</script>
 <section>
 	<div id="header">
-		<div><h3>${ProductVO.io_pname}</h3></div>
-		<div><a href="${rootPath}/product/update?id=${ProductVO.io_seq}"><i class="far fa-edit"></i></a></div>
-		<div><a href="${rootPath}/product/delete?id=${ProductVO.io_seq}"><i class="far fa-trash-alt"></i></a></div>
+		<div><h3>${PRO_VO.io_pname}</h3></div>
+		<div><a href="${rootPath}/update?id=${PRO_VO.io_seq}"><i class="far fa-edit"></i></a></div>
+		<div><a href="${rootPath}/delete?id=${PRO_VO.io_seq}"><i class="far fa-trash-alt"></i></a></div>
 	</div>
 	<div id="detail">
-		<p>일자 ${ProductVO.io_date} | ${ProductVO.io_time}</p>
-		<p>구분 ${ProductVO.io_input}</p>
-		<p>단가 ${ProductVO.io_price}</p>
-		<p>수량 ${ProductVO.io_quan}</p>
-		<p>합계 ${ProductVO.io_price*ProductVO.io_quan}</p>
+		<p>일자 ${PRO_VO.io_date} | ${PRO_VO.io_time}</p>
+		<p>구분 ${PRO_VO.io_input}</p>
+		<p>단가 ${PRO_VO.io_price}</p>
+		<p>수량 ${PRO_VO.io_quan}</p>
+		<p>합계 ${PRO_VO.io_price*PRO_VO.io_quan}</p>
 	</div>
 	<div id="button">
-		<button id="list">목록</button>
+		<button id="btn-list">목록</button>
 	</div>
 </section>
