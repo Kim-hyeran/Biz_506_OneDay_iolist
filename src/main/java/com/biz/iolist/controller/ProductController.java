@@ -32,6 +32,8 @@ public class ProductController {
 	public String home(Model model) {
 		List<ProductVO> proList=proService.selectAll();
 		
+		proList=ioprice(proList);
+		
 		model.addAttribute("PRO_LIST", proList);
 		model.addAttribute("BODY", "PRO_LIST");
 		
@@ -102,4 +104,17 @@ public class ProductController {
         
         return "redirect:/";
     }
+	
+	public List<ProductVO> ioprice(List<ProductVO> proList) {
+
+		for (ProductVO proVO : proList) {
+			if(proVO.getIo_input()==1) {
+				proVO.setIo_iprice(proVO.getIo_price());
+			} else if(proVO.getIo_input()==2) {
+				proVO.setIo_oprice(proVO.getIo_price());
+			}
+		}
+		
+		return proList;
+	}
 }

@@ -27,7 +27,4 @@ public class ProductVO {
 	private int io_iprice;
 	private int io_oprice;
 	
-	private int io_ipsum;
-	private int io_opsum;
-
 }

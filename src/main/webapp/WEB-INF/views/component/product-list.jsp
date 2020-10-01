@@ -8,7 +8,7 @@
 <article>
 	<a href="${rootPath}/write"><i class="fas fa-plus"></i></a>
 </article>
-<p id="notice">※제품명을 클릭하면 상세 페이지로 이동할 수 있습니다.</p>
+<p id="notice">※제품명을 클릭하면 상세 페이지로 이동할 수 있습니다.<br/>(수량 : 개, 가격 : 원)</p>
 <table>
 	<thead>
 		<tr>
@@ -37,11 +37,11 @@
 			            <td>${PRO_VO.io_date}</td>
 			            <td>${PRO_VO.io_time}</td>
 			            <td data-seq="${PRO_VO.io_seq}"><a href="detail?id=${PRO_VO.io_seq}">${PRO_VO.io_pname}</a></td>
-			            <td>${PRO_VO.io_price}</td>
-			            <td>${PRO_VO.io_price}</td>
+			            <td>${PRO_VO.io_iprice}</td>
+			            <td>${PRO_VO.io_oprice}</td>
 			            <td>${PRO_VO.io_quan}</td>
-			            <td>${PRO_VO.io_price*PRO_VO.io_quan}</td>
-			            <td>${PRO_VO.io_price*PRO_VO.io_quan}</td>
+			            <td>${PRO_VO.io_iprice*PRO_VO.io_quan}</td>
+			            <td>${PRO_VO.io_oprice*PRO_VO.io_quan}</td>
 			        </tr>
 				</c:forEach>
 			</c:otherwise>
