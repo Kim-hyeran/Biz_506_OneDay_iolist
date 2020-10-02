@@ -101,7 +101,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/delete", method=RequestMethod.GET)
-    public String delete(@RequestParam("id") String io_seq) {
+	public String delete(@RequestParam("id") String io_seq) {
         proService.delete(Long.valueOf(io_seq));
         
         return "redirect:/";
