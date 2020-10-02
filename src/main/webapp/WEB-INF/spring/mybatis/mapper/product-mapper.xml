@@ -41,8 +41,7 @@
         WHERE io_seq = #{io_seq}
  	</update>
  	<delete id="delete">
- 		DELETE FROM tbl_products
-        WHERE io_seq = #{io_seq}
+ 		DELETE FROM tbl_products WHERE io_seq=#{io_seq}
  	</delete>
  
  </mapper> 

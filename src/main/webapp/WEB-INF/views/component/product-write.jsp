@@ -7,9 +7,9 @@
 <script src="${rootPath}/static/js/home.js"></script>
 <script>
 	document.addEventListener("DOMContentLoaded", function () {
-		let edit = document.querySelector("#btn-save")
+		let edit=document.querySelector("#btn-save")
 		edit.addEventListener("click", function () {
-			document.querySelector("form").submit();
+			document.querySelector("form").submit()
 		})
 	})
 </script>
@@ -25,7 +25,7 @@
 		<label>상품명</label><form:input path="io_pname" />
 	</div>
 	<div>
-		<label>구분</label><form:input path="io_input" placeholder="매입은 1, 매출은 2로 표시하세요" />
+		<label>구분</label><form:input path="io_input" />
 	</div>
 	<div>
 		<label>단가</label><form:input path="io_price" />

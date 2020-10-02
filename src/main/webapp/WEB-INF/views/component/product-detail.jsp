@@ -8,8 +8,9 @@
 	document.addEventListener("DOMContentLoaded", function () {
 		let trash = document.querySelector(".fa-trash-alt")
 		trash.addEventListener("click", function () {
-			alert("삭제할까요?")
-			document.location.href="${rootPath}/delete?id=${PRO_VO.io_seq}"
+			if(confirm("삭제할까요?")) {
+				document.location.href="${rootPath}/delete?id=${PRO_VO.io_seq}"
+			}
 		})
 	})
 </script>
