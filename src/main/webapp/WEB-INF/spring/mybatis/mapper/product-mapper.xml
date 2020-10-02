@@ -31,14 +31,14 @@
  		)
  	</insert>
  	<update id="update" parameterType="proVO">
- 		UPDATE tbl_products SET
-            io_date = #{io_date},
-            io_time = #{io_time},
-            io_pname = #{io_pname},
-            io_input = #{io_input},
-            io_price = #{io_price},
-            io_quan  = #{io_quan}
-        WHERE io_seq = #{io_seq}
+		UPDATE tbl_products SET
+			io_date = #{io_date},
+			io_time = #{io_time},
+			io_pname = #{io_pname},
+			io_input = #{io_input},
+			io_price = #{io_price},
+			io_quan  = #{io_quan}
+		WHERE io_seq = #{io_seq}
  	</update>
  	<delete id="delete">
  		DELETE FROM tbl_products WHERE io_seq=#{io_seq}
