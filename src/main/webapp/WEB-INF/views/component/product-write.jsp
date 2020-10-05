@@ -16,6 +16,9 @@
 <h3>상품정보 등록</h3>
 <form:form modelAttribute="PRO_VO">
 	<div>
+		<form:input path="io_seq" value="${PRO_VO.io_seq}" type="hidden" />
+	</div>
+	<div>
 		<label>일자</label><form:input path="io_date" />
 	</div>
 	<div>
